@@ -1,0 +1,50 @@
+<script>
+
+    function getData()
+    {
+       const name= document.getElementById('name').value
+       const surname= document.getElementById('surname').value 
+
+        console.log(name)
+        console.log(surname)  
+        
+        if(!name)
+        {
+            document.getElementById('name-error').innerText="*enter name"
+            document.getElementById('name-error').style.color="red"
+        }
+        else
+
+        {
+             document.getElementById('name-error').innerText=""
+        }
+
+        if(!surname)
+        {
+            document.getElementById('surname-error').innerText="*enter surname"
+            document.getElementById('surname-error').style.color="red"
+        }
+
+        else
+        {
+            document.getElementById('surname-error').innerText=""
+           
+        }
+
+        if(name && surname)
+        {
+            alert("completed")
+            document.getElementById('name').value=""
+            document.getElementById('surname').value=""
+        }
+    }
+
+</script>
+
+<input type="text" id="name"><br>
+<p id="name-error"></p>
+
+<input type="text" id="surname"><br>
+<p id="surname-error"></p>
+
+<button type="submit" onclick="getData()">Submit</button>

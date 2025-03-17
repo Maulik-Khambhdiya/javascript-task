@@ -1,0 +1,53 @@
+<script>
+
+function myFunction()
+{
+    const name=document.getElementById('name').value
+    console.log(name);
+    
+    const surname=document.getElementById('surname').value
+    console.log(surname);
+   
+
+    if(!name)
+    {
+        document.getElementById('name-error').innerText="*enter name" 
+        document.getElementById('name-error').style.color="red"  
+    }
+
+    else
+    {
+        document.getElementById('name-error').innerText=""
+    }
+
+    if(!surname)
+    {
+        document.getElementById('surname-error').innerText="*enter surname" 
+        document.getElementById('surname-error').style.color="red"  
+    }
+
+    else
+    {
+        document.getElementById('surname-error').innerText=""
+    }
+
+
+    if(name && surname)
+    {
+        alert("Process compelted")
+        document.getElementById('name').value=''
+        document.getElementById('surname').value=''
+    }
+  
+   
+}
+</script>
+
+
+<input type="text" id="name"><br><br>
+<p id="name-error"></p>
+
+<input type="text" id="surname"><br><br>
+<p id="surname-error"></p>
+
+<button type="submit" onclick="myFunction()">Submit</button>
