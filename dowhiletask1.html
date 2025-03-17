@@ -1,0 +1,26 @@
+<script>
+    var sum=0
+    var a = 9
+    var b = a * a
+    var rem
+    
+    do {
+        rem = b % 10
+        sum = sum + rem
+        b = parseInt(b / 10)
+
+    } while (b>0);
+
+      
+    if(a==sum)
+    {
+        document.write("Neon number")
+    }
+
+    else
+    {
+        document.write("Not neon number")
+    }
+
+
+</script>

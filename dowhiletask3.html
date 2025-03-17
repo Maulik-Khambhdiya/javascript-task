@@ -1,0 +1,26 @@
+<script>
+    var b = a * a
+    var sum=0
+    var a
+    var rem
+    
+    for(a=0;a<=1000;a++)
+    {
+        var b = a * a
+        var sum=0
+
+    do {
+        rem = b % 10
+        sum = sum + rem
+        b = parseInt(b / 10)
+
+    } while (b>0);
+
+      
+    if(a==sum)
+    {
+        document.write("<br>Neon number==> ",sum)
+    }
+
+}
+</script>

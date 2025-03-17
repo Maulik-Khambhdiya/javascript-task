@@ -1,0 +1,13 @@
+<script>
+    var n=789
+    var rev=0
+
+    while(n>0)
+    {
+        rem = n % 10
+        rev = (rev*10) + rem
+        n = parseInt(n/10)
+    }
+
+    document.write("<br>Reverse number = ",rev)
+</script>

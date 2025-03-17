@@ -1,0 +1,50 @@
+<script>
+
+    var a
+    var b
+
+    function value() {
+        a = parseInt(prompt("Enter Number"))
+    }
+
+    value()
+
+    function check() {
+        b = confirm("Do you want to check Palindrome")
+
+        if (b == true) {
+            palindrome(a)
+        }
+
+        else {
+            value()
+        }
+    }
+
+    check()
+
+    function palindrome(a) {
+        var sum = 0
+        var rem
+        var temp = a
+
+        while (a != 0) {
+            rem = a % 10
+            sum = sum * 10 + rem
+            a = parseInt(a / 10)
+        }
+        
+        if (temp == sum) {
+            document.write("Given number is palindrome")
+        }
+
+        else {
+            document.write("Given number is not palindrome")
+        }
+
+
+    }
+
+
+
+</script>

@@ -1,0 +1,22 @@
+<script>
+    var n=121
+    var rev=0 
+    var temp = n
+    
+    for( ;n>0; )
+    {
+        rem = n % 10
+        rev = (rev*10) + rem
+        n = parseInt(n/10)
+    }
+
+    if(temp==rev)
+    {
+        document.write("Given number is palindrome ==> ",rev)
+    }
+    else
+    {
+        document.write("Given number is not palindrome")
+    }
+
+</script>

@@ -1,0 +1,168 @@
+<script>
+    a=34,b=79,c=86,d=96,e=98;
+
+    document.write("<br>a= ",a)
+    document.write("<br>b= ",b)
+    document.write("<br>c= ",c)
+    document.write("<br>d= ",d)
+    document.write("<br>e= ",e)
+
+    total=a+b+c+d+e
+    per=(a+b+c+d+e)/5
+    document.write("<br>")
+    document.write("<br>Total= ",total)
+   
+
+    if(a<b)
+    {
+        if(a<c)
+        {
+            if(a<d)
+            {
+                if(a<e)
+                {
+                    min=a;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+            else
+            {
+                if(d<e)
+                {
+                    min=d;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+        }
+        else
+        {
+            if(c<d)
+            {
+                if(c<e)
+                {
+                    min=c;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+            else
+            {
+                if(d<e)
+                {
+                    min=d;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+        }
+    }
+    else
+    {
+        if(b<c)
+        {
+            if(b<d)
+            {
+                if(b<e)
+                {
+                    min=b;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+            else
+            {
+                if(d<e)
+                {
+                    min=d;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+        }
+        else
+        {
+            if(c<d)
+            {
+                if(c<e)
+                {
+                    min=c;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+            else
+            {
+                if(d<e)
+                {
+                    min=d;
+                }
+                else
+                {
+                    min=e;
+                }
+            }
+
+        }
+    }
+
+    document.write("<br>Min= ",min)
+    
+    max= (a>b && a>c && a>d && a>e)? a :
+        (b>c && b>d && b>e) ? b :
+        (c>d && c>e)?c:
+        (d>e)?d:e
+
+    document.write("<br>Max= ",max)
+
+    if(a>33 && b>33 && c>33 && d>33 && e>33)
+    {
+        document.write("<br>Per= ",per+" %")
+
+        if(per>=90)
+        {
+            document.write("<br>A garde")
+        }
+        else if(per>=80)
+        {
+            document.write("<br>B garde")
+        }
+        else if(per>=70)
+        {
+            document.write("<br>C garde")
+        }
+        else if(per>=60)
+        {
+            document.write("<br>D garde")
+        }
+        else if(per>=50)
+        {
+            document.write("<br>E garde")
+        }
+       
+    }
+    else
+    {
+        document.write("<br>Fail !!!")
+    }
+
+    
+ 
+
+
+</script>
