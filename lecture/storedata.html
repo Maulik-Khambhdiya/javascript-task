@@ -1,0 +1,83 @@
+<!-- crud => create , read[view] , update , delete -->
+ <!-- input handling -->
+  <!-- validation -->
+
+  <!-- const arr = [12,45,45] => arr[0] -->
+   <!-- object => key:value ex. => const obj = {key:value , key:value} => (.)  -->
+    <!-- array of obj => [{} , {} , {}] => map => return -->
+    <script>
+ 
+        let setData = []
+        function getData()
+        {
+           const name = document.getElementById('name').value
+           // console.log(name);
+           const surname = document.getElementById('surname').value
+           // console.log(surname);
+   
+           const obj = {name , surname}
+           //console.log(obj.surname);
+           
+   
+           if(!name)
+           {
+               document.getElementById('name-error').innerText="Enter name"
+           }
+           else
+           {
+               document.getElementById('name-error').innerText=""
+           }
+           if(!surname)
+           {
+               document.getElementById('surname-error').innerText="Enter surname"
+           }
+           else
+           {
+               document.getElementById('surname-error').innerText=""
+           }
+   
+       if(name && surname)
+       {
+           // alert("success")
+   
+           setData.push(obj)
+   
+           document.getElementById('name').value=''
+           document.getElementById('surname').value=''
+           showData()
+       }
+   
+       
+           
+       }
+    
+       function showData()
+       {
+           // console.log("setData ==> ",setData);
+           var printData = ''
+           setData.map((item , index) => {
+               printData += '<tr><td>'+item.name+'</td><td>'+item.surname+'</td></tr>'
+           })
+           document.getElementById('printId').innerHTML = printData
+           
+   
+       }
+    </script>
+   
+   
+    <input type="text" name="" id="name">
+       <p id="name-error"></p>
+    <br>
+    <input type="text" name="" id="surname">
+    <p id="surname-error"></p>
+    <br>
+    <button onclick="getData()">Submit</button>
+   
+    <table border="1">
+       <tr>
+           <td>Name</td>
+           <td>surname</td>
+       </tr>
+       <tbody id="printId"></tbody>
+    </table>
+   
