@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-image: url('gratisography-foliage-face-800x525.jpg');
+            background-size: 100% 100%;
+        }
+        /* .box img{
+            width: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <script>
+        function changeFunction()
+        {
+            document.getElementsByClassName('box')[0].style.backgroundImage='url(gratisography-augmented-reality-800x525.jpg)'
+        }
+        function returnFunction()
+        {
+            document.getElementsByClassName('box')[0].style.backgroundImage='url(gratisography-foliage-face-800x525.jpg)'
+        }
+    </script>
+
+    <div class="box">
+        <!-- <img src="gratisography-augmented-reality-800x525.jpg" alt="" id="change"> -->
+    </div>
+
+    <!-- <button onclick="document.getElementById('change').src='gratisography-foliage-face-800x525.jpg'">Click</button> -->
+
+    <button onclick="changeFunction()">Next</button>
+    <button onclick="returnFunction()">Return</button>
+ 
+
+
+   
+
+</body>
+
+</html>
+

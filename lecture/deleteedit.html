@@ -1,0 +1,108 @@
+<script>
+
+    let setData = []
+    let editId = null
+    function getData()
+    {
+       const name = document.getElementById('name').value
+       // console.log(name);
+       const surname = document.getElementById('surname').value
+       // console.log(surname);
+
+       const obj = {name , surname}
+       console.log(obj.surname);
+       
+
+       if(!name)
+       {
+           document.getElementById('name-error').innerText="Enter name"
+       }
+       else
+       {
+           document.getElementById('name-error').innerText=""
+       }
+       if(!surname)
+       {
+           document.getElementById('surname-error').innerText="Enter surname"
+       }
+       else
+       {
+           document.getElementById('surname-error').innerText=""
+       }
+
+   if(name && surname)
+   {
+       // alert("success")
+
+       if(editId != null)
+       {
+            setData[editId] = obj
+            editId = null
+       }
+       else
+       {  
+           setData.push(obj)
+        }
+
+       document.getElementById('name').value=''
+       document.getElementById('surname').value=''
+       showData()
+   }
+
+   
+       
+   }
+
+   function showData()
+   {
+
+    var htmlPrint = ''
+
+    setData.map((item , index) => {
+        htmlPrint += `<tr><td>${index + 1}</td><td>${item.name}</td><td>${item.surname}</td><td><button onclick=deleteData(${index})>DELETE</button></td><td><button onclick=editData(${index})>Edit</button></td></tr>`
+    })
+
+    document.getElementById('printId').innerHTML = htmlPrint
+
+   }
+
+   function deleteData(index)
+   {
+        // console.log(index);
+        setData.splice(index  ,1)
+        showData()
+        
+   }
+
+
+   function editData(index)
+   {
+    const editData = setData[index]
+    // console.log(editData);
+    document.getElementById('name').value = editData.name
+    document.getElementById('surname').value = editData.surname
+    editId = index
+   }
+
+
+</script>
+
+
+<input type="text" name="" id="name">
+   <p id="name-error"></p>
+<br>
+<input type="text" name="" id="surname">
+<p id="surname-error"></p>
+<br>
+<button onclick="getData()">Submit</button>
+
+<table border="1">
+   <tr>
+       <td>Id</td>
+       <td>Name</td>
+       <td>surname</td>
+       <td>DELETE</td>
+       <td>EDIT</td>
+   </tr>
+   <tbody id="printId"></tbody>
+</table>
