@@ -1,0 +1,116 @@
+<script>
+
+    let setData=[]
+
+    function getData()
+    {
+        const date = document.getElementById('date').value
+        const work = document.getElementById('work').value
+        const person = document.getElementById('person').value
+        const completedate = document.getElementById('completedate').value
+        const obj={date,work,person,completedate}
+
+        if(!date)
+        {
+            document.getElementById('date-error').innerText="*enter date"
+        }
+
+        else
+        {
+            document.getElementById('date-error').innerText=""
+        }
+
+        if(!work)
+        {
+            document.getElementById('work-error').innerText="*enter date"
+        }
+
+        else
+        {
+            document.getElementById('work-error').innerText=""
+        }
+
+        if(!person)
+        {
+            document.getElementById('person-error').innerText="*enter date"
+        }
+
+        else
+        {
+            document.getElementById('person-error').innerText=""
+        }
+
+        if(!completedate)
+        {
+            document.getElementById('completedate-error').innerText="*enter date"
+        }
+
+        else
+        {
+            document.getElementById('completedate-error').innerText=""
+        }
+
+        if(date && work && person && completedate)
+        {
+            setData.push(obj)
+
+            document.getElementById('date').value=""
+            document.getElementById('work').value=""
+            document.getElementById('person').value=""
+            document.getElementById('completedate').value=""
+
+            showData()
+        }
+
+    }
+
+    function showData()
+    {
+        var printData=''
+
+        setData.map((item,index) =>{
+            printData +=`<tr><td>${index + 1}</td><td>${item.name}</td><td>${item.work}</td><td>${item.person}</td><td>${item.completedate}</td><td><button onclick="deleteData(${index})">Remove</button></td><td><button>Edit</button></td><tr>`
+        })
+
+        document.getElementById('printId').innerHTML=printData
+
+        
+    }
+
+    function deleteData(index)
+    {
+        setData.splice(index,1)
+        showData()
+    }
+
+</script>
+
+
+<input type="date" name="" id="date">
+<br>
+<p id="date-error"></p>
+<input type="text" name="" id="work">
+<br>
+<p id="work-error"></p>
+<input type="text" name="" id="person">
+<br>
+<p id="person-error"></p>
+<input type="date" name="" id="completedate">
+<br>
+<p id="completedate-error"></p>
+<button type="submit" onclick="getData()">Submit</button>
+<br><br>
+
+<table border="1"> 
+    <tr>
+        <th>No</th>
+        <th>Date</th>
+        <th>Work</th>
+        <th>Person</th>
+        <th>Completedate</th>
+        <th>Delete</th>
+        <th>Change</th>
+    </tr>
+
+    <tbody id="printId"></tbody>
+</table>
