@@ -1,6 +1,7 @@
 <script>
 
     let setData=[]
+    let editId=null
 
     function getData()
     {
@@ -13,6 +14,7 @@
         if(!date)
         {
             document.getElementById('date-error').innerText="*enter date"
+            document.getElementById('date-error').style.color="red"
         }
 
         else
@@ -22,7 +24,8 @@
 
         if(!work)
         {
-            document.getElementById('work-error').innerText="*enter date"
+            document.getElementById('work-error').innerText="*enter work"
+            document.getElementById('work-error').style.color="red"
         }
 
         else
@@ -32,7 +35,8 @@
 
         if(!person)
         {
-            document.getElementById('person-error').innerText="*enter date"
+            document.getElementById('person-error').innerText="*enter person"
+            document.getElementById('person-error').style.color="red"
         }
 
         else
@@ -42,7 +46,8 @@
 
         if(!completedate)
         {
-            document.getElementById('completedate-error').innerText="*enter date"
+            document.getElementById('completedate-error').innerText="*enter completedate"
+            document.getElementById('completedate-error').style.color="red"
         }
 
         else
@@ -52,7 +57,16 @@
 
         if(date && work && person && completedate)
         {
-            setData.push(obj)
+            if(editId != null)
+            {
+                setData[editId] = obj
+                editId = null
+            }
+
+            else
+            {
+                setData.push(obj)
+            }
 
             document.getElementById('date').value=""
             document.getElementById('work').value=""
@@ -69,7 +83,7 @@
         var printData=''
 
         setData.map((item,index) =>{
-            printData +=`<tr><td>${index + 1}</td><td>${item.name}</td><td>${item.work}</td><td>${item.person}</td><td>${item.completedate}</td><td><button onclick="deleteData(${index})">Remove</button></td><td><button>Edit</button></td><tr>`
+            printData +=`<tr><td>${index + 1}</td><td>${item.date}</td><td>${item.work}</td><td>${item.person}</td><td>${item.completedate}</td><td><button onclick="deleteData(${index})" style="width:100%;background-color:#ff4800;color:dark">Remove</button></td><td><button onclick="editData(${index})" style="width:100%;background-color:#008CBA;color:white">Edit</button></td></tr>`
         })
 
         document.getElementById('printId').innerHTML=printData
@@ -81,6 +95,18 @@
     {
         setData.splice(index,1)
         showData()
+    }
+
+    function editData(index)
+    {
+        var editData = setData[index]
+
+        document.getElementById('date').value = editData.date
+        document.getElementById('work').value= editData.work
+        document.getElementById('person').value = editData.person
+        document.getElementById('completedate').value= editData.completedate
+
+        editId = index
     }
 
 </script>
@@ -101,13 +127,13 @@
 <button type="submit" onclick="getData()">Submit</button>
 <br><br>
 
-<table border="1"> 
-    <tr>
+<table border="1" width="50%" style="text-align: center; background-color: rgb(134, 207, 207);"> 
+    <tr style="background-color: rgb(245, 245, 29)">
         <th>No</th>
         <th>Date</th>
         <th>Work</th>
         <th>Person</th>
-        <th>Completedate</th>
+        <th>Complete Date</th>
         <th>Delete</th>
         <th>Change</th>
     </tr>
