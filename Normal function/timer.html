@@ -1,8 +1,123 @@
-<script>
-    function data()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span
+        {
+           font-size: 25px;
+    
+        }
+        .timer
+        {
+            text-align: center;
+        }
+        button
+        {
+            background-color: black;
+            color: white;
+            display: block;
+            margin: auto;
+            padding: 10px 30px;
+            font-size: 25px;
+            border: none;
+            border-radius: 5%;
+
+        }
+        
+
+     
+        
+    </style>
+</head>
+<body>
+    
+    <h1 style="text-align: center;"><u><b>Timer</b></u></h1>
+    <div class="timer">
+        <span><p id="day">00</p> Day</span>
+        <span><p id="hour">00</p> Hour</span>
+        <span><p id="minute">00</p> Minute</span>
+        <span><p id="second">00</p> Second</span>
+        <br><br>
+        <button onclick="stop()">stop</button>
+    </div>
+
+
+    <script>
+        let second=0
+        let minute=0
+        let hour=0
+        let day=0
+
+    function start()
     {
-        console.log("hello")
+        second++
+
+        while(second>60)
+        {
+            second=0
+            minute++
+        }
+        document.getElementById("second").innerHTML= second
+
+        while(minute>60)
+        {
+            minute=0
+            hour++
+        }
+
+        document.getElementById("minute").innerHTML = minute
+
+        while(hour>24)
+        {
+            hour=0
+            day++
+        }
+            document.getElementById("hour").innerHTML = hour
+            document.getElementById("day").innerHTML = day
     }
 
-    setTimeout(data,1000)
-</script>
+    const loc =setInterval(start,1000)
+
+    function stop()
+    {
+            clearInterval(loc)
+
+    }
+
+
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function data()
+        {
+            console.log("hello")
+        }
+
+       var demo =  setInterval(data,1000)
+
+    
+
+       function cr()
+       {
+            clearInterval(demo)
+       }
+
+    </script>
+    <button onclick="cr()">stop</button>
+    
+</body>
+</html> -->
