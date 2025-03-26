@@ -1,0 +1,56 @@
+<script>
+    let setData = []
+    try {
+        
+
+        async function myFunction()
+        {
+            const call= await fetch('https://jsonplaceholder.typicode.com/users')
+
+            setData =await call.json()
+
+            showData()
+        }
+
+        myFunction()
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+    function showData()
+    {
+        let printData=''
+
+        setData.map((el,index)=>{
+            printData +=`<tr><td>${el.id}</td><td>${el.name}</td><td>${el.username}</td><td>${el.email}</td><td>${el.address}</td></tr>`
+        })
+
+        document.getElementById('printId').innerHTML=printData
+    }
+
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+
+        <tbody id="printId"></tbody>
+    </table>
+</body>
+</html>
