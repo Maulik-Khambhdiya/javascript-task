@@ -55,7 +55,7 @@ body
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
     font-size: 70px;
     color: red;
-    background-color: rgb(237, 217, 41);
+    /* background-color: rgb(237, 217, 41); */
     text-align: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
