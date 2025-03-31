@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="container">
-            <button type="button" class="btn btn-success">Play</button>
+            <button type="button" class="btn btn-success" onclick="resetGame()">Play</button>
         </div>
     </div>
 
@@ -44,19 +44,21 @@
         let boxes = document.querySelectorAll('.box')
         let turnO = true
         let winPattern = [
-            [0, 1, 2]
-            [0, 3, 6]
-            [0, 4, 8]
-            [1, 4, 7]
-            [2, 5, 8]
-            [2, 4, 6]
-            [3, 4, 5]
-            [6, 7, 8] ]
-        
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [3, 4, 5],
+            [6, 7, 8]]
+
+
+
 
         boxes.forEach((box) => {
-            box.addEventListener("click",() => {
-                console.log("h")
+            box.addEventListener("click", () => {
+
 
                 if (turnO) {
                     box.innerText = 'O'
@@ -69,8 +71,43 @@
                     turnO = true
                 }
 
+                box.disabled = true
+
+                checkWinner()
+
             })
         })
+
+        function checkWinner() {
+
+            for (let pattern of winPattern) {
+                let a = boxes[pattern[0]].innerText
+                let b = boxes[pattern[1]].innerText
+                let c = boxes[pattern[2]].innerText
+                if (a == b && b == c && a != '') {
+                    alert('Player ' + a + ' wins')
+                    resetGame()
+                    return
+                }
+            }
+        }
+
+        function disableBoard() {
+            boxes.forEach(box => box.disabled = true)
+        }
+
+        function resetGame() {
+
+            boxes.forEach(box => {
+                box.innerText = ""
+                box.disabled = false
+            })
+
+            statusText.innerText = ""
+            turnO = true
+        }
+
+
 
 
 
